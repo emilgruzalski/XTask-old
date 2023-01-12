@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XTaskWpfApp", "XTaskWpfApp\XTaskWpfApp.csproj", "{D3387365-A99D-4B7C-90AB-4BD9463A8664}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XTaskWindowsService", "XTaskWindowsService\XTaskWindowsService.csproj", "{76A9FBFE-5DE0-4B88-833D-2CFDFE7B1B7C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D3387365-A99D-4B7C-90AB-4BD9463A8664}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3387365-A99D-4B7C-90AB-4BD9463A8664}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3387365-A99D-4B7C-90AB-4BD9463A8664}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3387365-A99D-4B7C-90AB-4BD9463A8664}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76A9FBFE-5DE0-4B88-833D-2CFDFE7B1B7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76A9FBFE-5DE0-4B88-833D-2CFDFE7B1B7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76A9FBFE-5DE0-4B88-833D-2CFDFE7B1B7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76A9FBFE-5DE0-4B88-833D-2CFDFE7B1B7C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9293897E-EAFC-4A18-96BC-FEA6789D13F4}
+	EndGlobalSection
+EndGlobal
