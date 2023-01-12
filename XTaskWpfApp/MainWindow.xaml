@@ -12,10 +12,18 @@
         <local:ViewModel/>
     </Window.DataContext>
     <Grid>
-        <DataGrid x:Name="processDataGrid" Margin="5,45,5,5" IsReadOnly="True" ItemsSource="{Binding Processes}"/>
-        <Button Content="Open" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top" Height="35" Width="120"/>
-        <Button Content="End" HorizontalAlignment="Left" Margin="130,5,0,0" VerticalAlignment="Top" Height="35" Width="120"/>
-        <Button Content="Change Priority" HorizontalAlignment="Right" Margin="0,5,5,0" VerticalAlignment="Top" Height="35" Width="120"/>
+        <DataGrid x:Name="processDataGrid" Margin="5,45,5,5" IsReadOnly="True" ItemsSource="{Binding Processes}" AutoGenerateColumns="False" SelectionChanged="ProcessDataGrid_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Id}" Header="Id"/>
+                <DataGridTextColumn Binding="{Binding ProcessName}" Header="Process name"/>
+                <DataGridTextColumn Binding="{Binding MemoryInMB}" Header="Memory"/>
+                <DataGridTextColumn Binding="{Binding ProcessPriorityClass}" Header="Priority"/>
+                <DataGridTextColumn Binding="{Binding IsResponding}" Header="Is responding"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Open" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top" Height="35" Width="120" Click="OpenButton_Click"/>
+        <Button Content="End" HorizontalAlignment="Left" Margin="130,5,0,0" VerticalAlignment="Top" Height="35" Width="120" Click="EndButton_Click"/>
+        <Button Content="Change Priority" HorizontalAlignment="Right" Margin="0,5,5,0" VerticalAlignment="Top" Height="35" Width="120" Click="ChangePriorityButton_Click"/>
         <ComboBox x:Name="Priorities" Margin="255,5,125,0" Width="215" Height="35"/>
     </Grid>
 </Window>

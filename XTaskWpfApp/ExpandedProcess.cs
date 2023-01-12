@@ -11,6 +11,7 @@ namespace XTaskWpfApp
     {
         public int Id => Process.Id;
         public string ProcessName => Process.ProcessName;
+        public ProcessPriorityClass ProcessPriorityClass => Process.PriorityClass;
         public Process Process { get; }
 
         private long _Memory = 0;

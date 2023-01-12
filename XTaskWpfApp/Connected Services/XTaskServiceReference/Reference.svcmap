@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="f9d869d9-4ee7-43c5-9791-12bb045b158b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8000/XTaskService/service" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.disco" MetadataType="Disco" ID="8eefeb0d-10a0-4272-8705-6750a13a7a1b" SourceId="1" SourceUrl="http://localhost:8000/XTaskService/service?disco" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="22a9fe42-b7c5-4609-85b5-733479691747" SourceId="1" SourceUrl="http://localhost:8000/XTaskService/service?xsd=xsd0" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="fa768313-f2e8-4ac9-a3b3-f8ca10ce9f9b" SourceId="1" SourceUrl="http://localhost:8000/XTaskService/service?wsdl=wsdl0" />
+    <MetadataFile FileName="XTaskService.wsdl" MetadataType="Wsdl" ID="4a653211-47a7-495b-8ccd-a2e5bc294223" SourceId="1" SourceUrl="http://localhost:8000/XTaskService/service?wsdl" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="b5159850-5244-4e64-a10d-9578b0409a0e" SourceId="1" SourceUrl="http://localhost:8000/XTaskService/service?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

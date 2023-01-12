@@ -1,4 +1,5 @@
 ﻿using JetBrains.Annotations;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -9,15 +10,16 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Threading;
+using XTaskClassLibrary;
 
 namespace XTaskWpfApp
 {
     public class ViewModel : INotifyPropertyChanged
     {
-        private const string PERF_COUNTER_MEMORY = "Working Set - Private";
         private DispatcherTimer aTimer;
+        private RAMCounter aCounter = new RAMCounter();
 
-        public ViewModel() 
+        public ViewModel()
         {
             aTimer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(1) };
             aTimer.Tick += UpdateProcesses;
@@ -70,7 +72,7 @@ namespace XTaskWpfApp
             {
                 if (!currentIds.Remove(p.Id))
                 {
-                    ExpandedProcess expandedProcess = new ExpandedProcess(p, GetMemory(p), p.Responding);
+                    ExpandedProcess expandedProcess = new ExpandedProcess(p, aCounter.GetMemory(p), p.Responding);
                     Processes.Add(expandedProcess);
                 }
             }
@@ -79,7 +81,8 @@ namespace XTaskWpfApp
             {
                 if (currentIds.Remove(p.Id))
                 {
-                    Processes.First(cp => cp.Id == p.Id).Memory = await GetMemoryTask(p);
+                    
+                    Processes.First(cp => cp.Id == p.Id).Memory = await aCounter.GetMemoryTask(p);
                     Processes.First(cp => cp.Id == p.Id).IsResponding = p.Responding;
                 }
             }
@@ -87,37 +90,34 @@ namespace XTaskWpfApp
             aTimer.IsEnabled = true;
         }
 
-        protected virtual long GetMemory(Process prc)
+        public void ChangePriority(ProcessPriorityClass priority)
         {
-            PerformanceCounter pc = null;
-            long ret = -1;
-
-            try
-            {
-                pc = new PerformanceCounter("Process", PERF_COUNTER_MEMORY, prc.ProcessName);
-
-                if (pc != null)
-                    ret = pc.RawValue;
-            }
-            catch (Exception)
-            {
-            }
-            finally
-            {
-                if (pc != null)
-                {
-                    pc.Close();
-                    pc.Dispose();
-                }
-            }
-            return ret;
+            SelectedProcess.PriorityClass = priority;
         }
 
-        protected virtual Task<long> GetMemoryTask(Process prc)
+        public void KillProcess()
         {
-            Task<long> @long = new Task<long>(() => GetMemory(prc));
-            @long.Start();
-            return @long;
+            XTaskServiceReference.XTaskClient client = new XTaskServiceReference.XTaskClient();
+            client.InsertLogAsync(SelectedProcess.ProcessName, "Kill");
+            SelectedProcess.Kill();
+        }
+
+        public void OpenProcess()
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Title = "Browse Application Files",
+                CheckFileExists = true,
+                CheckPathExists = true,
+                Filter = "exe files (*.exe)|*.exe",
+            };
+
+            if (openFileDialog.ShowDialog() == true)
+            {
+                XTaskServiceReference.XTaskClient client = new XTaskServiceReference.XTaskClient();
+                client.InsertLogAsync(openFileDialog.SafeFileName, "Open");
+                Process.Start(openFileDialog.FileName);
+            }
         }
     }
 }

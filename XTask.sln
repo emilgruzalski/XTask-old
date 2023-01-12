@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XTaskWpfApp", "XTaskWpfApp\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XTaskWindowsService", "XTaskWindowsService\XTaskWindowsService.csproj", "{76A9FBFE-5DE0-4B88-833D-2CFDFE7B1B7C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XTaskClassLibrary", "XTaskClassLibrary\XTaskClassLibrary.csproj", "{AC9BC898-D075-486F-921C-F60D81FA3E57}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{76A9FBFE-5DE0-4B88-833D-2CFDFE7B1B7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{76A9FBFE-5DE0-4B88-833D-2CFDFE7B1B7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{76A9FBFE-5DE0-4B88-833D-2CFDFE7B1B7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC9BC898-D075-486F-921C-F60D81FA3E57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC9BC898-D075-486F-921C-F60D81FA3E57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC9BC898-D075-486F-921C-F60D81FA3E57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC9BC898-D075-486F-921C-F60D81FA3E57}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
