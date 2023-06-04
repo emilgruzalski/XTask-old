@@ -44,3 +44,22 @@ namespace XTaskClassLibrary
         }
     }
 }
+
+/* static void Main(string[] args)
+        {
+            PerformanceCounter cpuCounter = new PerformanceCounter();
+            cpuCounter.CategoryName = "Processor";
+            cpuCounter.CounterName = "% Processor Time";
+            cpuCounter.InstanceName = "_Total";
+
+            PerformanceCounter ramCounter = new PerformanceCounter("Memory", "Available MBytes");
+
+            while (true)
+            {
+                Console.WriteLine("CPU Load: {0}%", cpuCounter.NextValue());
+                Console.WriteLine("Available RAM: {0}MB", ramCounter.NextValue());
+                Console.WriteLine();
+                System.Threading.Thread.Sleep(1000);
+            }
+        }
+*/

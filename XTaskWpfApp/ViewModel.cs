@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -48,7 +49,7 @@ namespace XTaskWpfApp
 
         private async void UpdateProcesses(object sender, EventArgs e)
         {
-            aTimer.IsEnabled = false;
+            //aTimer.IsEnabled = false;
             List<int> currentIds = Processes.Select(p => p.Id).ToList();
             Process[] processes = Process.GetProcesses();
             List<int> deletedIds = new List<int>();
@@ -81,13 +82,13 @@ namespace XTaskWpfApp
             {
                 if (currentIds.Remove(p.Id))
                 {
-                    
+                    //Processes.First(cp => cp.Id == p.Id).ProcessPriorityClass = p.PriorityClass;
                     Processes.First(cp => cp.Id == p.Id).Memory = await aCounter.GetMemoryTask(p);
                     Processes.First(cp => cp.Id == p.Id).IsResponding = p.Responding;
                 }
             }
 
-            aTimer.IsEnabled = true;
+            //aTimer.IsEnabled = true;
         }
 
         public void ChangePriority(ProcessPriorityClass priority)
@@ -114,9 +115,15 @@ namespace XTaskWpfApp
 
             if (openFileDialog.ShowDialog() == true)
             {
-                XTaskServiceReference.XTaskClient client = new XTaskServiceReference.XTaskClient();
-                client.InsertLogAsync(openFileDialog.SafeFileName, "Open");
-                Process.Start(openFileDialog.FileName);
+                try
+                {
+                    XTaskServiceReference.XTaskClient client = new XTaskServiceReference.XTaskClient();
+                    client.InsertLogAsync(openFileDialog.SafeFileName, "Open");
+                    Process.Start(openFileDialog.FileName);
+                } catch (FileNotFoundException ex) 
+                {
+                    throw ex;
+                }
             }
         }
     }

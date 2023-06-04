@@ -18,7 +18,7 @@
                 <DataGridTextColumn Binding="{Binding ProcessName}" Header="Process name"/>
                 <DataGridTextColumn Binding="{Binding MemoryInMB}" Header="Memory"/>
                 <DataGridTextColumn Binding="{Binding ProcessPriorityClass}" Header="Priority"/>
-                <DataGridTextColumn Binding="{Binding IsResponding}" Header="Is responding"/>
+                <DataGridCheckBoxColumn Binding="{Binding IsResponding}" Header="Is responding"/>
             </DataGrid.Columns>
         </DataGrid>
         <Button Content="Open" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top" Height="35" Width="120" Click="OpenButton_Click"/>

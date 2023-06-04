@@ -127,6 +127,9 @@
     <PackageReference Include="ModernWpfUI">
       <Version>0.9.6</Version>
     </PackageReference>
+    <PackageReference Include="MSTest.TestFramework">
+      <Version>3.0.2</Version>
+    </PackageReference>
     <PackageReference Include="System.Runtime.WindowsRuntime">
       <Version>4.6.0</Version>
     </PackageReference>
